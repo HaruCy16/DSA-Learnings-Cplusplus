@@ -3,24 +3,24 @@
 using namespace std;
 
 //INTERPOLATION FUNCTION
-  void interpolation_search(int arr[], int arr_len, int key){
-    int found = 0;
-    int low = 0;
-    int high = arr_len - 1;
-    while (key >= arr[low] && key <= arr[high] && arr[high] != arr[low] ){
-      int pos = low + ((key - arr[low]) * (high - low) / (arr[high] - arr[low]));
-      if (arr[pos] == key) {
-        found = 1;
-        cout << "Found key at index " << pos << endl;
-        break;
-      } else if (arr[pos] > key)
-        high = pos - 1;
-      else
-        low = pos + 1;
-    }
-    if (!found)
-      cout << "Could not find the key" << endl;
+void interpolation_search(int arr[], int arr_len, int key){
+  int found = 0;
+  int low = 0;
+  int high = arr_len - 1;
+  while (key >= arr[low] && key <= arr[high] && arr[high] != arr[low] ){
+    int pos = low + ((key - arr[low]) * (high - low) / (arr[high] - arr[low]));
+    if (arr[pos] == key) {
+      found = 1;
+      cout << "Found key at index " << pos << endl;
+      break;
+    } else if (arr[pos] > key)
+      high = pos - 1;
+    else
+      low = pos + 1;
   }
+  if (!found)
+    cout << "Could not find the key" << endl;
+}
 
 
 int main(){
